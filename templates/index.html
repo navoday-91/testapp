@@ -1,1 +1,22 @@
-Hello From Index Page :)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+    </title>
+</head>
+<body>
+<header>
+    <h1> MY APP DATA</h1>
+    <hr>
+</header>
+<ul>
+    {% for data in myappdata %}
+        <li>
+            {{data.title}} : {{data.text}}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
