@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'index.html', context )
 
 def details(request, todo_id):
-    todo = myapp.object.get(id = todo_id)
+    todo = myapp.objects.get(id = todo_id)
     context = {
         'data': todo
     }
