@@ -9,3 +9,11 @@ def index(request):
         'listdata': myappdata
     }
     return render(request, 'index.html', context )
+
+def details(request, todo_id):
+    todo = myapp.object.get(id = todo_id)
+    context = {
+        'data': todo
+    }
+    return render(request, 'details.html', context)
+

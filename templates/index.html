@@ -14,7 +14,7 @@
 <ul>
     {% for data in listdata %}
         <li>
-            {{data.title}} : {{data.text}}
+            <a href="/myapp/details/{{data.id}}">{{data.title}}</a> {{data.title}} : {{data.text}}
         </li>
     {% endfor %}
 </ul>
