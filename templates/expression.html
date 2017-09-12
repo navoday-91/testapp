@@ -7,11 +7,12 @@
     </title>
 </head>
 <body>
+<input type="hidden" name="csrfmiddlewaretoken" value="Ypyceek9WojBPwdN1rWpQNtKlvO9Qr48">
 <header>
     <h1> Expression Solver</h1>
     <hr>
 </header>
-<form action="/myapp/expression/" method="post">
+<form action="/myapp/expression/" method="post">{% csrf_token %}
     <label for="expression">Your Expression (e.g. A + KY == AZ) : </label>
     <input id="expression" type="text" name="expression" value="{{ expression_value }}">
     <input type="submit" value="SOLVE">

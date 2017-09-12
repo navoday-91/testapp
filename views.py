@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import myapp
+from django.core.context_processors import csrf
 # Create your views here.
 
 def index(request):
