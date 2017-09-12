@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import myapp
 # Create your views here.
 
@@ -16,4 +15,7 @@ def details(request, todo_id):
         'data': todo
     }
     return render(request, 'details.html', context)
+
+def expression(request):
+    return render(request, 'expression.html')
 
