@@ -67,5 +67,9 @@ def expression(request):
         context = {
             'solution': solution
         }
-    return render(request, 'expression.html', context)
+        return render(request, 'expression.html', context)
+    else:
+        return render(request, 'expression.html')
+
+
 
