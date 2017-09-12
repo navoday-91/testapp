@@ -13,6 +13,7 @@ def index(request):
     }
     return render(request, 'index.html', context )
 
+
 def compile_formula(formula, verbose=False):
     """Compile formula into a function. Also return letters found, as a str,
     in same order as parms of function. The first digit of a multi-digit
@@ -22,9 +23,9 @@ def compile_formula(formula, verbose=False):
     # modify the code in this function.
 
     letters = ''.join(set(re.findall('[A-Z]', formula)))
-    firstletters = set(re.findall(r'\b([A-Z])[A-Z]', formula))
+    firstletters = set(re.findall(r'\b([A-Z])[A-Z0-9]', formula))
     parms = ', '.join(letters)
-    tokens = map(compile_word, re.split('([A-Z]+)', formula))
+    tokens = map(compile_word, re.split('([A-Z0-9]+)', formula))
     body = ''.join(tokens)
     if firstletters:
         tests = ' and '.join(L + '!=0' for L in firstletters)
@@ -54,8 +55,7 @@ def faster_solve(formula):
                 table = str.maketrans(letters, ''.join(map(str, digits)))
                 return formula.translate(table)
         except ArithmeticError:
-            pass
-
+            return "There was an Arithmetic Error! Please Retry."
 
 def details(request, todo_id):
     todo = myapp.objects.get(id = todo_id)
