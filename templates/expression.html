@@ -12,6 +12,9 @@
     <h1> Expression Solver</h1>
     <hr>
 </header>
+{% if solution != None %}
+{% expression_value = expression%}
+{% endif %}
 <form action="/myapp/expression/" method="post">{% csrf_token %}
     <label for="expression">Your Expression (e.g. A + KY == AZ) : </label>
     <input id="expression" type="text" name="expression" value="{{ expression_value }}">

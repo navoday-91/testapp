@@ -68,9 +68,7 @@ def expression(request):
     if request.method == 'POST':
         expressionstring = request.POST['expression']
         solution = faster_solve(expressionstring)
-        context = {
-            'solution': solution
-        }
+        context = dict(expression=expressionstring, solution=solution)
         return render(request, 'expression.html', context)
     else:
         return render(request, 'expression.html')
